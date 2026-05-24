@@ -28,7 +28,8 @@
     padding: 30px 15px;
   }
   .page {
-    width: 794px;
+    width: 100%;
+    max-width:794px;
     background: var(--cream);
     box-shadow: 0 20px 60px rgba(128, 71, 31, 0.3);
     position: relative;
@@ -157,6 +158,40 @@
   .footer-item .icon { color: var(--gold); }
   .footer-copy { font-size: 8.5px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
   @media print { body { padding: 0; background: white; } .page { box-shadow: none; width: 100%; } .urgency-dot { animation: none; } }
+
+.table-responsive{
+  overflow-x:auto;
+}
+
+@media (max-width:768px){
+
+  .header{
+    flex-direction:column;
+  }
+
+  .logo-area{
+    width:100%;
+    clip-path:none;
+  }
+
+  .client-card{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .specs-grid,
+  .payment-section,
+  .notes-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer,
+  .footer-contacts{
+    flex-direction:column;
+  }
+
+}
+  
 </style>
 </head>
 <body>
@@ -216,7 +251,8 @@
 
     <div class="sec-head"><div class="sec-diamond"></div><span>تفاصيل الطلب</span></div>
 
-    <table class="main-table">
+    <div class="table-responsive">
+<table class="main-table">
       <thead>
         <tr>
           <th>البيان</th><th>المقاس (م)</th><th>المساحة</th><th>العدد</th><th>سعر المتر</th><th>السعر الإفرادي</th><th>السعر الإجمالي</th>
@@ -229,7 +265,7 @@
           <td class="price-val">120,000</td><td class="price-val">1,440,000</td>
         </tr>
       </tbody>
-    </table>
+    </div>
 
     <div class="sec-head"><div class="sec-diamond"></div><span>المواصفات الفنية</span></div>
 
