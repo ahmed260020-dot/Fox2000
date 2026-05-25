@@ -7,347 +7,273 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
   :root {
-    --brown-dark: #643617;
-    --brown-mid: #6b3a1f;
-    --brown-accent: #8B5E3C;
-    --gold: #C9A96E;
-    --gold-light: #e8d5a3;
-    --cream: #FAF6F0;
-    --white: #ffffff;
-    --text-dark: #482b13;
-    --text-mid: #4a2f1a;
-    --green: #0c914e;
+    --brown-dark: #3d2210; --brown-mid: #6b3a1f; --brown-accent: #8B5E3C;
+    --gold: #C9A96E; --gold-light: #e8d5a3; --gold-deep: #b8860b;
+    --cream: #FAF6F0; --white: #ffffff;
+    --text-dark: #1a0f06; --text-mid: #4a2f1a; --green: #1a7a4a;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Tajawal', sans-serif;
-    background: #e8e2d8;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 30px 15px;
-  }
-  .page {
-    width: 100%;
-    max-width:794px;
-    background: var(--cream);
-    box-shadow: 0 20px 60px rgba(128, 71, 31, 0.3);
-    position: relative;
-  }
-  .header {
-    background: var(--brown-dark);
-    display: flex;
-    align-items: stretch;
-    min-height: 130px;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -30px; left: -30px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(130, 100, 44, 0.12), transparent 70%);
-  }
-  .logo-area {
-    background: var(--white);
-    width: 170px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 28px 16px 16px;
-    flex-shrink: 0;
-    clip-path: polygon(0 0, 82% 0, 100% 100%, 0 100%);
-    gap: 4px;
-  }
-  .logo-symbol {
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 4px;
-  }
-  .logo-symbol svg { width: 30px; height: 30px; }
-  .logo-name-ar { font-size: 13px; font-weight: 900; color: var(--brown-dark); text-align: center; line-height: 1.3; }
-  .logo-name-en { font-size: 7px; font-weight: 700; color: var(--gold); letter-spacing: 0.8px; text-align: center; text-transform: uppercase; margin-top: 2px; }
-  .logo-phones { font-size: 8px; color: var(--brown-accent); font-weight: 500; direction: ltr; margin-top: 2px; }
-  .header-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-  .doc-badge { display: flex; align-items: center; gap: 12px; }
-  .badge-line { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-  .badge-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
-  .doc-title-ar { font-size: 30px; font-weight: 900; color: var(--gold); letter-spacing: 2px; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
-  .doc-title-en { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 3px; font-weight: 400; text-transform: uppercase; }
-  .header-meta { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 16px 20px; gap: 8px; flex-shrink: 0; border-right: 1px solid rgba(201,169,110,0.2); direction: ltr; }
+  body { font-family: 'Tajawal', sans-serif; background: #2a1a0e; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px 12px; }
+  .page { width: 100%; max-width: 860px; background: var(--cream); box-shadow: 0 30px 80px rgba(0,0,0,0.6); border-radius: 4px; overflow: hidden; }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #2a1508 0%, #3d2210 40%, #5a2e14 100%); display: flex; align-items: stretch; min-height: 120px; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+  .logo-wrap { background: var(--white); width: 150px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 12px; clip-path: polygon(0 0, 78% 0, 100% 100%, 0 100%); position: relative; z-index: 1; }
+  .logo-wrap img { width: 110px; height: auto; object-fit: contain; }
+  .header-center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; z-index: 1; padding: 12px 10px; }
+  .header-ornament { display: flex; align-items: center; gap: 10px; width: 100%; justify-content: center; }
+  .orn-line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .orn-line.r { background: linear-gradient(90deg, var(--gold), transparent); }
+  .orn-diamond { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+  .doc-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; color: var(--gold); letter-spacing: 3px; text-shadow: 0 2px 15px rgba(0,0,0,0.5); }
+  .doc-title-en { font-size: clamp(8px, 1.2vw, 11px); color: rgba(255,255,255,0.45); letter-spacing: 4px; font-weight: 300; text-transform: uppercase; }
+  .header-meta { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 16px 18px; border-right: 1px solid rgba(201,169,110,0.2); z-index: 1; flex-shrink: 0; direction: ltr; }
   .meta-item { display: flex; flex-direction: column; gap: 1px; }
-  .meta-label { font-size: 8px; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
-  .meta-val { font-size: 12px; color: var(--white); font-weight: 700; }
-  .gold-bar { height: 5px; background: linear-gradient(90deg, var(--brown-dark) 0%, var(--gold) 25%, #f0d898 50%, var(--gold) 75%, var(--brown-dark) 100%); }
-  .urgency-banner { background: linear-gradient(90deg, var(--green), #0f5c36); padding: 8px 30px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--white); font-size: 12px; font-weight: 700; }
-  .urgency-dot { width: 8px; height: 8px; background: #7fff9a; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
-  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
-  .body { padding: 28px 32px; }
-  .client-card { border: 1.5px solid var(--gold-light); border-right: 5px solid var(--gold); border-radius: 6px; padding: 16px 20px; background: var(--white); display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(61,34,16,0.06); }
-  .client-tag { font-size: 9px; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-  .client-tag::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
-  .client-name { font-size: 18px; font-weight: 900; color: var(--brown-dark); }
-  .client-type { font-size: 11px; color: var(--brown-accent); margin-top: 3px; font-weight: 500; }
-  .client-cr { font-size: 10px; color: var(--text-mid); margin-top: 6px; font-weight: 600; background: rgba(201,169,110,0.12); padding: 3px 10px; border-radius: 20px; display: inline-block; }
-  .client-right { text-align: left; direction: ltr; }
-  .quote-ref { font-size: 10px; color: var(--brown-accent); font-weight: 600; }
-  .quote-date { font-size: 14px; font-weight: 800; color: var(--brown-dark); direction: rtl; text-align: right; margin-top: 3px; }
-  .quote-validity { margin-top: 6px; background: rgba(162, 133, 78, 0.15); border: 1px solid var(--gold-light); border-radius: 4px; padding: 3px 10px; font-size: 10px; color: var(--brown-mid); font-weight: 600; text-align: center; direction: rtl; }
-  .sec-head { display: flex; align-items: center; gap: 10px; margin: 22px 0 14px; }
-  .sec-diamond { width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .meta-lbl { font-size: 8px; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+  .meta-val { font-size: 11px; color: var(--white); font-weight: 700; }
+  .meta-val.active { color: #7fff9a; }
+
+  /* DIVIDERS */
+  .gold-div { height: 4px; background: linear-gradient(90deg, var(--brown-dark), var(--gold-deep) 20%, var(--gold) 40%, #f5e4a0 50%, var(--gold) 60%, var(--gold-deep) 80%, var(--brown-dark)); }
+  .motto-banner { background: linear-gradient(90deg, var(--brown-dark) 0%, var(--gold-deep) 15%, var(--gold) 35%, #f5e4a0 50%, var(--gold) 65%, var(--gold-deep) 85%, var(--brown-dark) 100%); padding: 10px 30px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .motto-dot { width: 6px; height: 6px; background: var(--brown-dark); border-radius: 50%; flex-shrink: 0; opacity: 0.6; }
+  .motto-text { font-size: clamp(11px, 1.6vw, 13px); font-weight: 800; color: var(--brown-dark); letter-spacing: 1px; text-align: center; }
+
+  /* BODY */
+  .body { padding: clamp(16px, 3vw, 30px) clamp(14px, 3vw, 32px); }
+  .client-card { border: 1.5px solid var(--gold-light); border-right: 5px solid var(--gold); border-radius: 6px; padding: clamp(12px,2vw,18px) clamp(14px,2vw,20px); background: var(--white); display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 22px; box-shadow: 0 3px 16px rgba(61,34,16,0.07); flex-wrap: wrap; }
+  .client-tag { font-size: 9px; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .client-tag::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); min-width: 20px; }
+  .client-name { font-size: clamp(14px,2.2vw,18px); font-weight: 900; color: var(--brown-dark); }
+  .client-type { font-size: 11px; color: var(--brown-accent); margin-top: 3px; }
+  .client-cr { font-size: 10px; color: var(--text-mid); margin-top: 6px; background: rgba(201,169,110,0.12); padding: 3px 10px; border-radius: 20px; display: inline-block; font-weight: 600; }
+  .client-right { text-align: left; direction: ltr; flex-shrink: 0; }
+  .q-ref { font-size: 10px; color: var(--brown-accent); font-weight: 600; }
+  .q-validity { margin-top: 8px; background: rgba(201,169,110,0.15); border: 1px solid var(--gold-light); border-radius: 4px; padding: 4px 10px; font-size: 10px; color: var(--brown-mid); font-weight: 600; text-align: center; direction: rtl; }
+
+  /* SECTION HEAD */
+  .sec-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 13px; }
+  .sec-dia { width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
   .sec-head span { font-size: 13px; font-weight: 800; color: var(--brown-dark); white-space: nowrap; }
   .sec-head::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold-light), transparent); }
-  .main-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+
+  /* TABLE */
+  .main-table { width: 100%; border-collapse: collapse; font-size: clamp(10px,1.4vw,11.5px); }
   .main-table thead tr { background: var(--brown-dark); }
-  .main-table thead th { color: var(--gold-light); font-weight: 700; padding: 11px 14px; border: 1px solid rgba(172, 137, 74, 0.2); font-size: 11px; text-align: center; }
-  .main-table tbody tr { background: var(--white); }
-  .main-table tbody td { padding: 10px 14px; border: 1px solid rgba(161, 132, 78, 0.25); color: var(--text-dark); text-align: center; vertical-align: middle; line-height: 1.6; }
+  .main-table thead th { color: var(--gold-light); font-weight: 700; padding: clamp(8px,1.2vw,11px) clamp(8px,1.2vw,14px); border: 1px solid rgba(201,169,110,0.2); text-align: center; }
+  .main-table tbody td { padding: clamp(8px,1.2vw,10px) clamp(8px,1.2vw,14px); border: 1px solid rgba(201,169,110,0.25); color: var(--text-dark); text-align: center; vertical-align: middle; line-height: 1.6; background: var(--white); }
   .main-table tbody td.desc { text-align: right; font-weight: 600; }
-  .main-table tbody td.price-val { font-weight: 800; color: var(--brown-mid); font-size: 14px; }
-  .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .main-table tbody td.pv { font-weight: 800; color: var(--brown-mid); font-size: clamp(12px,1.8vw,14px); }
+
+  /* SPECS */
+  .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-top: 12px; }
   .spec-card { background: var(--white); border: 1px solid var(--gold-light); border-radius: 5px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; }
-  .spec-icon { width: 28px; height: 28px; background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+  .spec-icon { width: 30px; height: 30px; flex-shrink: 0; background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid)); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-top: 1px; }
   .spec-title { font-size: 10px; font-weight: 800; color: var(--brown-mid); margin-bottom: 2px; }
   .spec-desc { font-size: 10px; color: var(--text-mid); line-height: 1.5; }
-  .price-summary { margin-top: 24px; background: var(--white); border: 1.5px solid var(--gold-light); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(88, 49, 22, 0.08); }
-  .price-summary-header { background: var(--brown-mid); padding: 10px 20px; color: var(--gold-light); font-size: 12px; font-weight: 800; letter-spacing: 1px; text-align: center; }
-  .price-rows { padding: 4px 0; }
-  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; border-bottom: 1px solid rgba(201,169,110,0.2); }
+
+  /* PRICING */
+  .price-summary { margin-top: 22px; background: var(--white); border: 1.5px solid var(--gold-light); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(61,34,16,0.08); }
+  .ps-header { background: var(--brown-mid); padding: 10px 20px; color: var(--gold-light); font-size: 12px; font-weight: 800; letter-spacing: 1px; text-align: center; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: clamp(10px,1.5vw,13px) clamp(14px,2vw,24px); border-bottom: 1px solid rgba(201,169,110,0.2); }
   .price-row:last-child { border-bottom: none; }
-  .price-row.total-row { background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid)); padding: 16px 24px; }
-  .price-row-label { font-size: 13px; color: var(--text-mid); font-weight: 600; }
-  .price-row.total-row .price-row-label { color: var(--gold-light); font-size: 14px; font-weight: 800; }
-  .price-row-value { font-size: 18px; font-weight: 900; color: var(--brown-dark); direction: ltr; }
-  .price-row-value .currency { font-size: 11px; font-weight: 600; color: var(--brown-accent); margin-right: 4px; }
-  .price-row.total-row .price-row-value { color: var(--gold); font-size: 22px; }
-  .price-row.total-row .price-row-value .currency { color: var(--gold-light); }
-  .payment-section { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .payment-card { background: linear-gradient(135deg, var(--brown-dark), #432511); border-radius: 8px; padding: 16px 18px; color: var(--white); }
-  .payment-card-title { font-size: 10px; color: var(--gold-light); font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-  .payment-card-title::after { content: ''; flex: 1; height: 1px; background: rgba(201,169,110,0.3); }
-  .payment-step { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .payment-step:last-child { border-bottom: none; }
-  .step-num { width: 24px; height: 24px; background: rgba(171, 140, 81, 0.2); border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--gold); flex-shrink: 0; }
-  .step-text { font-size: 11px; line-height: 1.4; }
-  .step-amount { font-size: 13px; font-weight: 800; color: var(--gold); margin-top: 1px; direction: ltr; }
+  .price-row.total { background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid)); padding: clamp(12px,1.8vw,16px) clamp(14px,2vw,24px); }
+  .pr-label { font-size: clamp(11px,1.5vw,13px); color: var(--text-mid); font-weight: 600; }
+  .price-row.total .pr-label { color: var(--gold-light); font-size: clamp(12px,1.6vw,14px); font-weight: 800; }
+  .pr-val { font-size: clamp(15px,2.2vw,18px); font-weight: 900; color: var(--brown-dark); direction: ltr; }
+  .pr-val .cur { font-size: 10px; font-weight: 600; color: var(--brown-accent); margin-right: 3px; }
+  .price-row.total .pr-val { color: var(--gold); font-size: clamp(17px,2.5vw,22px); }
+  .price-row.total .pr-val .cur { color: var(--gold-light); }
+
+  /* PAYMENT + TRUST */
+  .pay-trust { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .pay-card { background: linear-gradient(135deg, var(--brown-dark), #2a160a); border-radius: 8px; padding: 16px 18px; color: var(--white); }
+  .pay-card-title { font-size: 10px; color: var(--gold-light); font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .pay-card-title::after { content: ''; flex: 1; height: 1px; background: rgba(201,169,110,0.3); }
+  .pay-step { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .pay-step:last-of-type { border-bottom: none; }
+  .step-n { width: 26px; height: 26px; flex-shrink: 0; background: rgba(201,169,110,0.15); border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: var(--gold); }
+  .step-lbl { font-size: 11px; line-height: 1.4; }
+  .step-amt { font-size: 13px; font-weight: 800; color: var(--gold); direction: ltr; }
   .trust-card { background: var(--white); border: 1.5px solid var(--gold-light); border-radius: 8px; padding: 16px 18px; }
   .trust-title { font-size: 10px; color: var(--brown-mid); font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .trust-title::after { content: ''; flex: 1; height: 1px; background: var(--gold-light); }
-  .trust-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(159, 130, 75, 0.15); font-size: 10.5px; color: var(--text-mid); line-height: 1.5; }
+  .trust-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(201,169,110,0.12); font-size: 10.5px; color: var(--text-mid); line-height: 1.5; }
   .trust-item:last-child { border-bottom: none; }
-  .trust-check { color: var(--green); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
-  .notes-box { margin-top: 18px; background: rgba(162, 130, 69, 0.07); border: 1px solid var(--gold-light); border-radius: 6px; padding: 14px 18px; }
+  .t-check { color: var(--green); font-size: 13px; flex-shrink: 0; }
+
+  /* NOTES */
+  .notes-box { margin-top: 18px; background: rgba(201,169,110,0.07); border: 1px solid var(--gold-light); border-radius: 6px; padding: 14px 18px; }
   .notes-title { font-size: 11px; font-weight: 800; color: var(--brown-mid); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-  .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 20px; }
+  .notes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 5px 20px; }
   .note-item { font-size: 10.5px; color: var(--text-mid); display: flex; align-items: flex-start; gap: 5px; line-height: 1.5; }
   .note-item::before { content: '◆'; color: var(--gold); font-size: 7px; margin-top: 4px; flex-shrink: 0; }
-  .sig-section { margin-top: 26px; display: flex; gap: 20px; }
-  .sig-block { flex: 1; border-top: 2px solid var(--gold-light); padding-top: 10px; text-align: center; }
-  .sig-role { font-size: 10px; font-weight: 800; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 4px; }
-  .sig-name { font-size: 14px; font-weight: 900; color: var(--brown-dark); }
-  .sig-title { font-size: 10px; color: var(--brown-accent); margin-top: 2px; }
-  .sig-line { width: 80%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); margin: 12px auto 6px; }
-  .sig-stamp { font-size: 9px; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
-  .footer { margin-top: 22px; background: var(--brown-dark); padding: 12px 32px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .footer-contacts { display: flex; gap: 18px; align-items: center; }
+
+  /* SIGNATURES */
+  .sig-row { margin-top: 24px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .sig-block { flex: 1; min-width: 160px; border-top: 2px solid var(--gold-light); padding-top: 10px; text-align: center; }
+  .sig-role { font-size: 10px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+  .sig-name { font-size: clamp(12px,1.8vw,14px); font-weight: 900; color: var(--brown-dark); }
+  .sig-title-s { font-size: 10px; color: var(--brown-accent); margin-top: 2px; }
+  .sig-line { width: 70%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); margin: 14px auto 5px; }
+  .sig-stamp { font-size: 8px; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* FOOTER */
+  .footer { margin-top: 22px; background: var(--brown-dark); padding: clamp(10px,1.5vw,14px) clamp(16px,2.5vw,32px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .footer-contacts { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .footer-item { font-size: 10px; color: rgba(255,255,255,0.65); direction: ltr; display: flex; align-items: center; gap: 5px; }
-  .footer-item .icon { color: var(--gold); }
-  .footer-copy { font-size: 8.5px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
-  @media print { body { padding: 0; background: white; } .page { box-shadow: none; width: 100%; } .urgency-dot { animation: none; } }
+  .footer-item .ic { color: var(--gold); }
+  .footer-copy { font-size: 8px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
 
-.table-responsive{
-  overflow-x:auto;
-}
-
-media (max-width:768px) @{
-
-  .header{
-    flex-direction:column;
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .logo-wrap { width: 110px; } .logo-wrap img { width: 80px; }
+    .header-meta { padding: 12px 10px; gap: 7px; }
+    .client-card { flex-direction: column; }
+    .client-right { align-self: flex-end; }
+    .main-table { font-size: 10px; }
+    .main-table thead th, .main-table tbody td { padding: 7px 6px; }
+    .pay-trust { grid-template-columns: 1fr; }
   }
-
-  .logo-area{
-    width:100%;
-    clip-path:none;
-  }
-
-  .client-card{
-    flex-direction:column;
-    gap:15px;
-  }
-
-  .specs-grid,
-  .payment-section,
-  .notes-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer,
-  .footer-contacts{
-    flex-direction:column;
-  }
-
-}
-  
+  @media print { body { padding: 0; background: white; } .page { box-shadow: none; max-width: 100%; border-radius: 0; } }
 </style>
 </head>
 <body>
 <div class="page">
+
   <div class="header">
-    <div class="logo-area">
-      <div class="logo-symbol">
-        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="13" y="2" width="8" height="26" rx="1.5" fill="#C9A96E"/>
-          <path d="M5 8 Q9 5 13 8 Q9 11 5 14 Q9 11 5 8Z" fill="#C9A96E" opacity="0.6"/>
-          <path d="M5 14 Q9 11 13 14 Q9 17 5 20 Q9 17 5 14Z" fill="#C9A96E" opacity="0.4"/>
-          <path d="M5 20 Q9 17 13 20 Q9 23 5 26 Q9 23 5 20Z" fill="#C9A96E" opacity="0.25"/>
-        </svg>
-      </div>
-      <div class="logo-name-ar">مصنع العز<br>للكرفانات</div>
-      <div class="logo-name-en">Al Ezz Caravans</div>
-      <div class="logo-phones">0541307125</div>
-      <div class="logo-phones">0500886729</div>
+    <div class="logo-wrap">
+      <!-- ضع هنا: <img src="شعار.jpg" ...> أو src="data:image/jpeg;base64,..." -->
+      <img src="شعار_العز.jpg" alt="مصنع العز للكرفانات">
     </div>
-    <div class="header-main">
-      <div class="doc-badge">
-        <div class="badge-line"></div>
-        <div class="doc-title-ar">عـرض سـعـر</div>
-        <div class="badge-line rev"></div>
+    <div class="header-center">
+      <div class="header-ornament">
+        <div class="orn-line"></div>
+        <div class="orn-diamond"></div>
+        <div class="doc-title">عـرض سـعـر</div>
+        <div class="orn-diamond"></div>
+        <div class="orn-line r"></div>
       </div>
       <div class="doc-title-en">Official Price Quotation</div>
     </div>
     <div class="header-meta">
-      <div class="meta-item"><span class="meta-label">Quote No.</span><span class="meta-val">ECF-2026-</span></div>
-      <div class="meta-item"><span class="meta-label">Date</span><span class="meta-val">24/05/2026</span></div>
-      <div class="meta-item"><span class="meta-label">Valid For</span><span class="meta-val" style="color:#7fff9a;">10 Days</span></div>
+      <div class="meta-item"><span class="meta-lbl">Quote No.</span><span class="meta-val">ECF-2025-089</span></div>
+      <div class="meta-item"><span class="meta-lbl">Valid For</span><span class="meta-val active">10 Days</span></div>
     </div>
   </div>
 
-  <div class="gold-bar"></div>
+  <div class="gold-div"></div>
 
-  <div class="urgency-banner">
-    <div class="urgency-dot"></div>
-    تصنيع - تجديد - صيانة
-    <div class="urgency-dot"></div>
+  <div class="motto-banner">
+    <div class="motto-dot"></div>
+    <div class="motto-text">نصنع لك مكاناً يليق بطموحك — جودة تدوم، وتصميم يُلهم</div>
+    <div class="motto-dot"></div>
   </div>
 
   <div class="body">
+
     <div class="client-card">
-      <div class="client-left">
+      <div>
         <div class="client-tag">مقدم إلى</div>
         <div class="client-name">الشركة العربية لخدمات الأمن والسلامة</div>
-        
-        <div class="client-cr">السجل التجاري: 7003778490 · تاريخ الإصدار: 03/08/2017</div>
+        <div class="client-type">شركة حراسات أمنية · ذات مسؤولية محدودة</div>
+        <div class="client-cr">السجل التجاري: 7003778490 · إصدار: 03/08/2017</div>
       </div>
       <div class="client-right">
-        <div class="quote-ref">REF # ECF-2026-</div>
-        <div class="quote-date">25/05/2026</div>
-        <div class="quote-validity">⏱ صلاحية العرض: ١٠ أيام</div>
+        <div class="q-ref">REF # ECF-2025-089</div>
+        <div class="q-validity">⏱ صلاحية العرض: ١٠ أيام</div>
       </div>
     </div>
 
-    <div class="sec-head"><div class="sec-diamond"></div><span>تفاصيل الطلب</span></div>
-
-    <div class="table-responsive">
-<table class="main-table">
+    <div class="sec-head"><div class="sec-dia"></div><span>تفاصيل الطلب</span></div>
+    <table class="main-table">
       <thead>
-        <tr>
-          <th>البيان</th><th>المقاس (م)</th><th>المساحة</th><th>العدد</th><th>سعر المتر</th><th>السعر الإفرادي</th><th>السعر الإجمالي</th>
-        </tr>
+        <tr><th>البيان</th><th>المقاس</th><th>المساحة</th><th>العدد</th><th>سعر المتر</th><th>السعر الإفرادي</th><th>السعر الإجمالي</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td class="desc">كرفان مكتبي <br><span style="font-size:10px;color:#8B5E3C;font-weight:500;">يعمل بطاقة شمسية أو مولد كهربائي · دورة مياه · مطبخ · ٥ مكاتب · كاميرات داخلية وخارجية · وايفاي بر</span></td>
-          <td class="price-val">12 × 3.75</td><td class="price-val">45 م²</td><td class="price-val">12</td><td class="price-val">10,000 ر.س</td>
-          <td class="price-val">120,000</td><td class="price-val">1,440,000</td>
+          <td class="desc">كرفان مكتبي احترافي<br><span style="font-size:10px;color:#8B5E3C;font-weight:500;">طاقة شمسية أو مولد · دورة مياه · مطبخ · ٥ مكاتب · كاميرات · وايفاي بر</span></td>
+          <td>12 × 3.75 م</td><td>45 م²</td><td>12</td><td>10,000 ر.س</td>
+          <td class="pv">120,000</td><td class="pv">1,440,000</td>
         </tr>
       </tbody>
-    </div>
+    </table>
 
-    <div class="sec-head"><div class="sec-diamond"></div><span>المواصفات الفنية</span></div>
-
+    <div class="sec-head"><div class="sec-dia"></div><span>المواصفات الفنية</span></div>
     <div class="specs-grid">
-      <div class="spec-card"><div class="spec-icon">🏗</div><div><div class="spec-title">الهيكل والشاسيه</div><div class="spec-desc">جسور 30×12 بحريني من افضل انوع الجسور  – AMPS2 – تيوبات 40×40 مل</div></div></div>
-      <div class="spec-card"><div class="spec-icon">🧱</div><div><div class="spec-title">الجدران (خارجي / داخلي)</div><div class="spec-desc">ساندوتش بانل 5 سم أملس + عازل حراري مدهون من الداخل</div></div></div>
-      <div class="spec-card"><div class="spec-icon">🏠</div><div><div class="spec-title">السقف</div><div class="spec-desc">بانل 5 سم معرج من الخارج + عازل رول وطني 8 مل من الداخل</div></div></div>
-      <div class="spec-card"><div class="spec-icon">⚡</div><div><div class="spec-title">الكهرباء والإضاءة</div><div class="spec-desc">أسلاك سويدية بمقاسات مختلفة، مواسير مرنة مخفية، طيلون + LED</div></div></div>
-      <div class="spec-card"><div class="spec-icon">🪟</div><div><div class="spec-title">الشبابيك والأبواب</div><div class="spec-desc">ألمنيوم 90×90 سحّاب درفتين + قفل وحماية حديد · باب بانل مع 3 مفصلات</div></div></div>
-      <div class="spec-card"><div class="spec-icon">🛡</div><div><div class="spec-title">الأمن والمراقبة</div><div class="spec-desc">كاميرا داخلية + كاميرا خارجية · إنارة داخلية وخارجية شاملة</div></div></div>
-      <div class="spec-card"><div class="spec-icon">☀️</div><div><div class="spec-title">الطاقة</div><div class="spec-desc">يعمل بطاقة شمسية أو مولد كهربائي حسب طبيعة الموقع</div></div></div>
-      <div class="spec-card"><div class="spec-icon">✅</div><div><div class="spec-title">الضمان</div><div class="spec-desc">5 سنوات ضد عيوب التصنيع في الهيكل والجدران والسقف</div></div></div>
+      <div class="spec-card"><div class="spec-icon">🏗</div><div><div class="spec-title">الهيكل والشاسيه</div><div class="spec-desc">جسور 6×12 بقواطع AMPS2 + تيوبات 40×40 مل</div></div></div>
+      <div class="spec-card"><div class="spec-icon">🧱</div><div><div class="spec-title">الجدران</div><div class="spec-desc">ساندوتش بانل 5 سم أملس + عازل حراري مدهون</div></div></div>
+      <div class="spec-card"><div class="spec-icon">🏠</div><div><div class="spec-title">السقف</div><div class="spec-desc">بانل 5 سم معرج + عازل رول وطني 8 مل</div></div></div>
+      <div class="spec-card"><div class="spec-icon">⚡</div><div><div class="spec-title">الكهرباء والإضاءة</div><div class="spec-desc">أسلاك سويدية + مواسير مرنة مخفية + LED</div></div></div>
+      <div class="spec-card"><div class="spec-icon">🪟</div><div><div class="spec-title">الشبابيك والأبواب</div><div class="spec-desc">ألمنيوم 90×90 سحّاب درفتين + حماية حديد</div></div></div>
+      <div class="spec-card"><div class="spec-icon">🛡</div><div><div class="spec-title">الأمن والمراقبة</div><div class="spec-desc">كاميرا داخلية + كاميرا خارجية + إنارة شاملة</div></div></div>
+      <div class="spec-card"><div class="spec-icon">☀️</div><div><div class="spec-title">الطاقة</div><div class="spec-desc">طاقة شمسية أو مولد كهربائي</div></div></div>
+      <div class="spec-card"><div class="spec-icon">✅</div><div><div class="spec-title">الضمان</div><div class="spec-desc">5 سنوات ضد عيوب التصنيع</div></div></div>
     </div>
 
-    <div class="sec-head"><div class="sec-diamond"></div><span>ملخص الأسعار</span></div>
-
+    <div class="sec-head"><div class="sec-dia"></div><span>ملخص الأسعار</span></div>
     <div class="price-summary">
-      <div class="price-summary-header">تفاصيل السعر · ريال سعودي</div>
-      <div class="price-rows">
-        <div class="price-row"><span class="price-row-label">المبلغ الكرفان (45 م² × 10,000 ر.س)</span><span class="price-row-value"><span class="currency">ر.س</span>120,000</span></div>
-        <div class="price-row"><span class="price-row-label">بلغ الكرفنات (12×120,000)</span><span class="price-row-value"><span class="currency">ر.س</span>1,440,000</span></div>
-        <div class="price-row total-row"><span class="price-row-label">🏆 إجمالي المبلغ</span><span class="price-row-value"><span class="currency">ر.س</span>1,440,000</span></div>
-      </div>
+      <div class="ps-header">تفاصيل التسعير · ريال سعودي</div>
+      <div class="price-row"><span class="pr-label">مبلغ الكرفان الواحد (45 م² × 10,000 ر.س)</span><span class="pr-val"><span class="cur">ر.س</span>120,000</span></div>
+      <div class="price-row"><span class="pr-label">بلغ الكرفانات (120,000 × 12)</span><span class="pr-val"><span class="cur">ر.س</span>1,440,000</span></div>
+      <div class="price-row total"><span class="pr-label">🏆 إجمالي المبلغ</span><span class="pr-val"><span class="cur">ر.س</span>1,440,000</span></div>
     </div>
 
-    <div class="payment-section">
-      <div class="payment-card">
-        <div class="payment-card-title">جدول الدفع</div>
-        <div class="payment-step"><div class="step-num">١</div><div><div class="step-text">عند التعاقد والتعميد</div><div class="step-amount">720,000 ر.س (50%)</div></div></div>
-        <div class="payment-step"><div class="step-num">٢</div><div><div class="step-text">قبل التحميل والتسليم</div><div class="step-amount">720,000 ر.س (50%)</div></div></div>
-        <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(201,169,110,0.2);">
-         
-          <div style="font-size:12px;color:white;font-weight:700;">
-        </div>
+    <div class="pay-trust">
+      <div class="pay-card">
+        <div class="pay-card-title">جدول الدفع</div>
+        <div class="pay-step"><div class="step-n">١</div><div><div class="step-lbl">عند التعاقد والتعميد</div><div class="step-amt">720,000 ر.س (50%)</div></div></div>
+        <div class="pay-step"><div class="step-n">٢</div><div><div class="step-lbl">قبل التحميل والتسليم</div><div class="step-amt">720,000 ر.س (50%)</div></div></div>
       </div>
       <div class="trust-card">
         <div class="trust-title">لماذا تختار مصنع العز؟</div>
-        <div class="trust-item"><span class="trust-check">✓</span> خبرة تجارية موثقة بسجل تجاري نشط منذ 2017</div>
-        <div class="trust-item"><span class="trust-check">✓</span> ضمان 5 سنوات ضد عيوب التصنيع</div>
-        
-        <div class="trust-item"><span class="trust-check">✓</span> مواصفات تناسب بيئة العمل الأمني البري</div>
-        <div class="trust-item"><span class="trust-check">✓</span> دعم فني مستمر بعد التسليم</div>
+        <div class="trust-item"><span class="t-check">✓</span> خبرة موثقة بسجل تجاري نشط منذ 2017</div>
+        <div class="trust-item"><span class="t-check">✓</span> ضمان 5 سنوات ضد عيوب التصنيع</div>
+        <div class="trust-item"><span class="t-check">✓</span> مواصفات تناسب بيئة العمل الأمني البري</div>
+        <div class="trust-item"><span class="t-check">✓</span> دعم فني مستمر بعد التسليم</div>
       </div>
     </div>
 
     <div class="notes-box">
-      <div class="notes-title"><div class="sec-diamond" style="width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;"></div>شروط وملاحظات العرض</div>
+      <div class="notes-title"><div class="sec-dia" style="width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;"></div>شروط وملاحظات العرض</div>
       <div class="notes-grid">
-        <div class="note-item">السعر يشمل التوريد والتركيب الكامل وفق المواصفات أعلاه.</div>
-        <div class="note-item">الأثاث والأجهزة والتكييفات غير مشمولة بالعرض.</div>
-        <div class="note-item">السعر لا يشمل النقل، التنزيل، ربط التغذية وتصريف المياه.</div>
-        <div class="note-item">أي إضافات خارج النطاق تُحتسب بأمر تغيير مستقل.</div>
+        <div class="note-item">السعر يشمل التوريد والتركيب الكامل.</div>
+        <div class="note-item">الأثاث والأجهزة والتكييفات غير مشمولة.</div>
+        <div class="note-item">السعر لا يشمل النقل والتنزيل وتصريف المياه.</div>
+        <div class="note-item">أي إضافات تُحتسب بأمر تغيير مستقل.</div>
         <div class="note-item">صلاحية العرض ١٠ أيام من تاريخه.</div>
-        <div class="note-item">ربط الكهرباء والسباكة في الموقع على حساب العميل.</div>
+        <div class="note-item">ربط الكهرباء والسباكة على حساب العميل.</div>
       </div>
     </div>
 
-    <div class="sig-section">
+    <div class="sig-row">
       <div class="sig-block">
         <div class="sig-role">اعتماد وموافقة العميل</div>
         <div class="sig-name">الشركة العربية للأمن والسلامة</div>
-        <div class="sig-title">الختم والتوقيع المفوض</div>
+        <div class="sig-title-s">الختم والتوقيع المفوض</div>
         <div class="sig-line"></div>
-        <div class="sig-stamp">signature & stamp</div>
+        <div class="sig-stamp">Signature & Stamp</div>
       </div>
       <div class="sig-block">
         <div class="sig-role">مقدم العرض</div>
         <div class="sig-name">عبدالعزيز العتيبي</div>
-        <div class="sig-title">مصنع العز للكرفانات</div>
+        <div class="sig-title-s">مصنع العز للكرفانات</div>
         <div class="sig-line"></div>
-        <div class="sig-stamp">authorized signatory</div>
+        <div class="sig-stamp">Authorized Signatory</div>
       </div>
     </div>
+
   </div>
 
   <div class="footer">
     <div class="footer-contacts">
-      <div class="footer-item"><span class="icon">📞</span> 0541307125 – 0500886729</div>
-      <div class="footer-item"><span class="icon">✉</span> alezzcaravans@gmail.com</div>
+      <div class="footer-item"><span class="ic">📞</span> 0541307125 – 0500886729</div>
+      <div class="footer-item"><span class="ic">✉</span> alezzcaravans@gmail.com</div>
     </div>
     <div class="footer-copy">Al Ezz Caravans Factory · KSA © 2025</div>
   </div>
+
 </div>
 </body>
 </html>
